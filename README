@@ -1,1 +1,4 @@
-rm -rf build && mkdir -p build && cd build && cmake .. && make -j$(sysctl -n hw.logicalcpu)
+Download libtorch and place it in the third_party/libtorch directory.
+Download Abseil and place it in the third_party/abseil-cpp directory.
+
+run with: rm -rf build && mkdir -p build && cd build && make && cd .. && ./nano_gpt

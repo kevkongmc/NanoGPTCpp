@@ -1,0 +1,37 @@
+{
+  // Editor settings
+  "editor.rulers": [80],
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 80,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "ms-vscode.cpptools",
+  
+  // C++ specific settings
+  "[cpp]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  
+  // C++ formatting configuration
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.clang_format_path": "clang-format",
+  "C_Cpp.clang_format_style": "file",
+  "C_Cpp.clang_format_fallbackStyle": "{BasedOnStyle: Google, ColumnLimit: 80, IndentWidth: 2, AccessModifierOffset: -2, AllowShortIfStatementsOnASingleLine: false, BreakBeforeBraces: Allman, BreakConstructorInitializers: BeforeComma, Cpp11BracedListStyle: true, IndentCaseLabels: true, Language: Cpp, NamespaceIndentation: All, PointerAlignment: Left, SortIncludes: true, SpaceBeforeParens: ControlStatements, UseTab: Never}",
+  
+  // File associations
+  "files.associations": {
+    "*.h": "cpp",
+    "*.cc": "cpp",
+    "*.cpp": "cpp",
+    "*.hpp": "cpp"
+  }
+}

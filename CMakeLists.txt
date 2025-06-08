@@ -28,18 +28,22 @@ add_subdirectory(third_party/abseil-cpp)
 # Add source files
 set(SOURCES
     nano_gpt_main.cc
-    tokenizer.cc
+    tokenizer/tokenizer.cc
+    batcher/batcher.cc
+    bigram_language_model.cc
+    bigram_language_model.h
+)
+
+# Add include directories
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 # Set output directories
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
 
-# Add executables
-add_executable(example example.cc)
 add_executable(nano_gpt ${SOURCES})
 
-# Link libraries to the executables
-target_link_libraries(example PRIVATE "${TORCH_LIBRARIES}")
 # Include Abseil libraries for convenience
 set(ABSL_LIBS
     # Core libraries
@@ -49,7 +53,6 @@ set(ABSL_LIBS
     absl::statusor
     
     # Container libraries
-    absl::any
     absl::btree
     absl::fixed_array
     absl::flat_hash_map
@@ -66,8 +69,6 @@ set(ABSL_LIBS
     absl::log_globals
 )
 
-# Link libraries to the executables
-target_link_libraries(example PRIVATE "${TORCH_LIBRARIES}")
 target_link_libraries(nano_gpt PRIVATE 
     "${TORCH_LIBRARIES}"
     ${ABSL_LIBS}
@@ -78,7 +79,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Set compile features for each target
-target_compile_features(example PRIVATE cxx_std_17)
 target_compile_features(nano_gpt PRIVATE cxx_std_17)
 
 # Set the directory where the executables will be built (project root)
