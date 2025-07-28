@@ -2,6 +2,8 @@
 
 A C++ implementation of a GPT-style transformer language model, following Andrej Karpathy's NanoGPT tutorial. This project trains a character-level bigram language model on the tiny Shakespeare dataset.
 
+Note: This is currently incomplete. I've only done the first part of the tutorial, and the Bigram Language Model is still being constructed. The main file, which demonstrates following the tutorial, does work though.
+
 ## Dependencies
 
 - LibTorch (PyTorch C++ API)
