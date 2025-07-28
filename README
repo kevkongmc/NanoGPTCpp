@@ -1,4 +1,36 @@
-Download libtorch and place it in the third_party/libtorch directory.
-Download Abseil and place it in the third_party/abseil-cpp directory.
+# NanoGPT C++
 
-run with: rm -rf build && mkdir -p build && cd build && make && cd .. && ./nano_gpt
+A C++ implementation of a GPT-style transformer language model, following Andrej Karpathy's NanoGPT tutorial. This project trains a character-level bigram language model on the tiny Shakespeare dataset.
+
+## Dependencies
+
+- LibTorch (PyTorch C++ API)
+- Abseil C++ library
+- CMake 3.10+
+- C++17 compatible compiler
+
+## Setup
+
+1. Download LibTorch and extract it to `third_party/libtorch/`
+2. Download Abseil-cpp and extract it to `third_party/abseil-cpp/`
+3. Ensure `tiny_shakespeare.txt` is in the project root
+
+## Build and Run
+
+```bash
+rm -rf build && mkdir -p build && cd build && cmake .. && make && cd .. && ./nano_gpt
+```
+
+## Configuration
+
+Training parameters can be adjusted via command-line flags:
+
+- `--block_size`: Context window size (default: 8)
+- `--batch_size`: Training batch size (default: 32)
+- `--max_iterations`: Training iterations (default: 16384)
+- `--eval_interval`: Evaluation frequency (default: 1024)
+- `--learning_rate`: Learning rate (default: 1e-3)
+
+## Project Status
+
+This is a work-in-progress implementation following the NanoGPT tutorial. Currently supports basic bigram model training.
